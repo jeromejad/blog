@@ -66,8 +66,8 @@
 					</div>
 				</div>
 				<div class="w3layouts-agile-copyrightbottom">
-					<p> Responsive Blog Site <?php $current=date("Y"); print_r($current);?> | Brought To You by
-						<a href="http://code-projects.org/">Code-Projects</a>
+					<p> Responsive Blog Site <?php $current=date("Y"); print_r($current);?> | Copyright
+						<a href="/">New Waves Digital</a>
 					</p>
 
 				</div>
