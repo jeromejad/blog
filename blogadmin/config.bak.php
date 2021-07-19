@@ -1,9 +1,8 @@
 <?php
-	$dbServer = 'localhost';
-	$dbUsername = 'root';
-	$dbPassword = '';
-	$dbDatabase = 'blog_admin_db';
-
+$dbServer = 'bcupibzywnva4fhilcxr-mysql.services.clever-cloud.com';
+$dbUsername = 'uixdfpp1egrv5bdz';
+$dbPassword = 'BEcOK7MBhTLYUC8TctW5';
+$dbDatabase = 'bcupibzywnva4fhilcxr';
 	$adminConfig = array(
 		'adminUsername' => "admin",
 		'adminPassword' => "21232f297a57a5a743894a0e4a801fc3",
