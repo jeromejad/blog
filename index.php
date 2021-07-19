@@ -1,275 +1,134 @@
-<?php require("libs/fetch_data.php");?>
+<?php 
+  include "admin/db_connection.php";
+?>
 <!DOCTYPE html>
-<html lang="zxx">
-<head>
-	<title><?php getwebname("titles"); echo"|"; gettagline("titles");?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	<link id="browser_favicon" rel="shortcut icon" href="blogadmin/images/<?php geticon("titles"); ?>">
-	<meta charset="utf-8" name="description" content="<?php getshortdescription("titles");?>">
-	<meta name="keywords" content="<?php getkeywords("titles");?>" />
-	<script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+<html lang="en">
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
-	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" href="css/jquery.desoslide.css">
-	<link href="css/style.css" rel='stylesheet' type='text/css' />
-	<link href="css/fontawesome-all.css" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-	rel="stylesheet">
-</head>
+<?php include "layout/head.php"; ?>
 
 <body>
-	<?php include("header.php");?>
-	<?php include("banner.php");?>
-	<section class="bottom-slider">
-		<div class="course_demo1">
-			<ul id="flexiselDemo1">
-				<?php getbottomsliderposts("blogs");?>
-			</ul>
-		</div>
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="embed-responsive embed-responsive-21by9">
-							<iframe src="https://www.youtube.com"></iframe>
-						</div>
-					</div>
 
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--/main-->
-	<section class="main-content-w3layouts-agileits">
-		<div class="container">
-			<div class="row">
-				<!--left-->
-				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-					<!--grid blogs below-->
-					<div class="blog-girds-sec">
-						<div class="row">
-							<?php getblogridposts("blogs");?>
-							<!--bloggrids-->
-						</div>
-					</div>
-				</div>
-				<!--//left-->
-				<!--right-->
-				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
-					<div class="right-blog-info text-left">
-						<h4><strong>Categories</strong></h4>
-						<ul class="list-group single">
-							<?php countcategories();?>
-						</ul>
-						<div class="tech-btm widget_social">
-							<h4>Stay Connected</h4>
-							<ul>
+  <!-- Navigation -->
+ <?php include "layout/topnavigation.php"; ?>
 
-								<li>
-									<a class="twitter" href="<?php getlinks("links","twitter");?>">
-										<i class="fab fa-twitter"></i>
-										<span class="count"></span> Twitter</a>
-									</li>
-									<li>
-										<a class="facebook" href="<?php getlinks("links","facebook");?>">
-											<i class="fab fa-facebook-f"></i>
-											<span class="count"></span> Facebook</a>
-										</li>
-										<li>
-											<a class="dribble" href="<?php getlinks("links","dribble");?>">
-												<i class="fab fa-dribbble"></i>
+  <!-- Page Content -->
+  <div class="container">
 
-												<span class="count"></span> Dribble</a>
-											</li>
-											<li>
-												<a class="pin" href="<?php getlinks("links","pinterest");?>">
-													<i class="fab fa-pinterest"></i>
-													<span class="count"></span> Pinterest</a>
-												</li>
+    <div class="row">
 
-											</ul>
-										</div>
-										<div class="tech-btm">
-											<h4>Older Posts</h4>
-											<?php getolderposts("blogs");?>
-											<!--olderpostsendhere-->
-										</div>
-									</div>
-								</aside>
-								<!--//right-->
-							</div>
-						</div>
-					</section>
-					<!--//main-->
-					<!--/middle-->
-					<section class="middle-sec-agileinfo-w3ls">
-						<div class="container">
-							<div class="row inner-sec">
-								<div class="col-md-4 news-left">
-									<ul id="demo1_thumbs" class="list-inline">
-										<!--get latest four-->
-										<?php getfour("blogs");?>
-									</ul>
-								</div>
-								<div id="demo1_main_image" class="col-md-8  news-right"></div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
 
-					</section>
-					<!--//middle-->
-					<!---->
-					<section class="main-content-w3layouts-agileits">
-						<div class="container">
-							<div class="row">
-								<!--left-->
-								<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-									<?php getonelatest("blogs");?>
-								</div>
-								<!--//left-->
-								<!--right-->
-								<aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
-									<div class="tech-btm">
-										<h4>Editor's Choice</h4>
-										
-										<?php geteditorschoice("editors_choice"); ?>
-										
-									</div>
-									
-								</aside>
-								<!--//right-->
-							</div>
-						</div>
-					</section>
-					<!--//main-->
-					<?php include("footer.php");?>
-					<!---->
-					<!-- js -->
-					<script src="js/jquery-2.2.3.min.js"></script>
-					<!-- //js -->
-					<!-- desoslide-JavaScript -->
-					<script src="js/jquery.desoslide.js"></script>
-					<script>
-						$('#demo1_thumbs').desoSlide({
-							main: {
-								container: '#demo1_main_image',
-								cssClass: 'img-responsive'
-							},
-							effect: 'sideFade',
-							caption: true
-						});
-					</script>
-
-					<!-- requried-jsfiles-for owl -->
-					<script>
-						$(window).load(function () {
-							$("#flexiselDemo1").flexisel({
-								visibleItems: 3,
-								animationSpeed: 1000,
-								autoPlay: true,
-								autoPlaySpeed: 3000,
-								pauseOnHover: true,
-								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: {
-									portrait: {
-										changePoint: 480,
-										visibleItems: 1
-									},
-									landscape: {
-										changePoint: 640,
-										visibleItems: 2
-									},
-									tablet: {
-										changePoint: 768,
-										visibleItems: 3
-									}
-								}
-							});
-
-						});
-					</script>
-					<script>
-						$(window).load(function () {
-							$("#flexiselDemo2").flexisel({
-								visibleItems: 3,
-								animationSpeed: 1000,
-								autoPlay: true,
-								autoPlaySpeed: 3000,
-								pauseOnHover: true,
-								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: {
-									portrait: {
-										changePoint: 480,
-										visibleItems: 1
-									},
-									landscape: {
-										changePoint: 640,
-										visibleItems: 2
-									},
-									tablet: {
-										changePoint: 768,
-										visibleItems: 3
-									}
-								}
-							});
-
-						});
-					</script>
-					<script src="js/jquery.flexisel.js"></script>
-					<!-- //password-script -->
-					<!--/ start-smoth-scrolling -->
-					<script src="js/move-top.js"></script>
-					<script src="js/easing.js"></script>
-					<script>
-						jQuery(document).ready(function ($) {
-							$(".scroll").click(function (event) {
-								event.preventDefault();
-								$('html,body').animate({
-									scrollTop: $(this.hash).offset().top
-								}, 900);
-							});
-						});
-					</script>
-					<!--// end-smoth-scrolling -->
-
-					<script>
-						$(document).ready(function () {
-							
-							var defaults = {
-							  			containerID: 'toTop', // fading element id
-										containerHoverID: 'toTopHover', // fading element hover id
-										scrollSpeed: 1200,
-										easingType: 'linear' 
-									};
-									
-
-									$().UItoTop({
-										easingType: 'easeOutQuart'
-									});
-
-								});
-							</script>
-							<a href="#home" class="scroll" id="toTop" style="display: block;">
-								<span id="toTopHover" style="opacity: 1;"> </span>
-							</a>
-
-							<!-- //Custom-JavaScript-File-Links -->
-							<script src="js/bootstrap.js"></script>
+        <h1 class="my-4">Virtua PHP
+          <small>Simple CMS Blog</small>
+        </h1>
+        <?php 
+                $no_posts_per_page = 5;
+                if (isset($_GET['page']))
+                {
+                  $page = $_GET['page'];
+                }
+                else
+                {
+                  $page = 1;
+                }
+                $start = $no_posts_per_page * $page - $no_posts_per_page;
+                $sql_select_post = "SELECT * FROM posts WHERE post_status = 1 ORDER BY id desc LIMIT {$start} ,{$no_posts_per_page} ";
+                $result_sql_select_post = mysqli_query($dbconnection, $sql_select_post);
+                while ($rowpost = mysqli_fetch_assoc($result_sql_select_post))
+                {
+                  $view_post_id = $rowpost['id'];
+                  $view_post_category = $rowpost['post_category'];
+                  $view_post_title = $rowpost['post_title'];
+                  $view_post_autor = $rowpost['post_autor'];
+                  $view_post_date = $rowpost['post_date'];
+                  $view_post_edit_date = $rowpost['post_edit_date'];
+                  $view_post_image = $rowpost['post_image'];
+                  $view_post_text = $rowpost['post_text'];
+                  $view_post_tag = $rowpost['post_tag'];
+                  $view_post_visit_counter = $rowpost['post_visit_counter'];
+                  $view_post_status = $rowpost['post_status'];
+                  $view_post_priority = $rowpost['post_priority'];
+             ?>
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="admin/images/blog/<?php  echo $view_post_image; ?>" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title"><?php echo $view_post_title; ?></h2>
+            <p class="card-text">
+              <?php //echo $view_post_text; 
+              echo substr($view_post_text, 0, 400) . "...";?>
+            </p>
+            <a href="post.php?postid=<?= $view_post_id; ?>" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <?php 
+                $sql_select_users_article = "SELECT * FROM users WHERE id={$view_post_autor}";
+                $result_sql_select_users_article = mysqli_query($dbconnection, $sql_select_users_article);
+                while ($rowusers_article = mysqli_fetch_assoc($result_sql_select_users_article))
+                {
+                  $view_users_id = $rowusers_article['id'];
+                  $view_users_name = $rowusers_article['name'];
+                  $view_users_image = $rowusers_article['image'];
+                } 
+             ?>
+          <div class="card-footer text-muted">
+            <img src="admin/images/users/<?php echo $view_users_image; ?>" class="zoom3" alt="User Image" width="50" align="left" hspace="5">
+            By <a href="author.php?auth=<?= $view_users_id; ?>"><?php echo $view_users_name; ?></a> <br>Web developer <a href="#">VirtuaPHP</a>
+            | <?php echo $view_post_date; ?>
+          </div>
+        </div>
+      <?php } ?>
 
 
-						</body>
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <?php 
+                  $select_post_query = "SELECT * FROM posts WHERE post_status = 1";
+                  $result_select_post_query = mysqli_query ($dbconnection, $select_post_query);
+                  $sum_posts = mysqli_num_rows($result_select_post_query) ;
+                  
+                  $allpages = ceil($sum_posts / $no_posts_per_page);
+                  
+                if($page > 1)
+                {
+                  $previous= $page - 1;
 
-						</html>
+
+                ?>
+            <a class="page-link" href="index.php?page=<?php echo $previous ?>">&larr; Previous</a>
+             <?php } ?>
+          </li>
+          <li class="page-item">
+            <?php 
+                if ($page < $allpages)
+                  {
+                    $next= $page + 1;
+              ?>
+            <a class="page-link" href="index.php?page=<?php echo $next ?>">Next &rarr;</a>
+            <?php } ?>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <?php include "layout/sidebar.php"; ?>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <?php include "layout/footer.php"; ?>
+  
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="blog-template/vendor/jquery/jquery.min.js"></script>
+  <script src="blog-template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
