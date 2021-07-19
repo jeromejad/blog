@@ -94,7 +94,7 @@ ob_start();
              ?>
         <p class="lead">
          <img src="admin/images/users/<?php echo $view_users_image; ?>" class="zoom3" alt="User Image" width="50" align="left" hspace="5">
-            By <a href="#"><?php echo $view_users_name; ?></a> <br>Web developer <a href="#">VirtuaPHP</a>
+            By <a href="#"><?php echo $view_users_name; ?></a> <br>Web developer <a href="#">New Waves Digital</a>
           
         </p>
 

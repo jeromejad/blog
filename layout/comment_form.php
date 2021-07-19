@@ -52,7 +52,7 @@
                  ?>
                  <p class="lead">
                    <img src="admin/images/users/<?php echo $success_login_image_admin; ?>" class="zoom3" alt="User Image" width="50" align="left" hspace="5">
-                      <a href="#"><?php echo $success_login_name_admin; ?></a> <br>Web developer <a href="#">VirtuaPHP</a>
+                      <a href="#"><?php echo $success_login_name_admin; ?></a> <br>Web developer <a href="#">New Waves Digital</a>
                     
                   </p>
                 
